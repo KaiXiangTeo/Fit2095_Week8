@@ -48,3 +48,6 @@ app.post('/movies/:id/actors', movies.addActor);//5
 app.get('/movies/:year1/:year2',movies.getAllYear); //6
 // app.get('/actorsAll', actors.getMovieAll); //7
 // app.get('/moviesAll', movies.getActorAll); //8
+
+//extra tasks
+app.put('/actorsUpdate',actors.updateAge);

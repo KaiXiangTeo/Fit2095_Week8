@@ -98,7 +98,8 @@ module.exports = {
             res.json(data);
 
         })
-    },
+    }
+
 
     // getActorAll: function(req,res){
     //     Movie.find({}).populate("actors").exec(function (err, movies) {

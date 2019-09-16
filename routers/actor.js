@@ -80,9 +80,7 @@ module.exports = {
     },
 
     deleteWithMovie: function (req, res) {
-        Actor.findOne({_id: req.params.id})
-            .populate('movies') //.populate replaces each ID in the array ‘movies’ with its document.
-            .exec(function (err, actor) {
+        Actor.findOne({_id: req.params.id},function (err, actor) {
                 if (err) return res.status(400).json(err);
                 if (!actor) return res.status(404).json();
                 actor.movies.forEach(element => {
@@ -117,7 +115,15 @@ module.exports = {
         });
                 
     },
+    updateAge:function(req, res){
+        Actor.updateMany({'bYear':{$lte:51}},{$inc : {'bYear' : 4}}).exec(function (err,actor){
+                if (err) return res.status(400).json(err);
+                if (!actor) return res.status(404).json();
+                res.json(actor);
+                })
 
+    }
+    
     // getMovieAll: function(req,res){
     //     Actor.find({}).populate("movies").exec(function (err, actors) {
     //         if (err) {
@@ -127,5 +133,4 @@ module.exports = {
     //         }
     //     });
     // }
-    
 };
