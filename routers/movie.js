@@ -7,7 +7,6 @@ module.exports = {
     getAll: function (req, res) {
         Movie.find({}).populate("actors").exec(function (err, movies) {
             if (err) return res.status(400).json(err);
-
             res.json(movies);
         });
     },
@@ -18,7 +17,6 @@ module.exports = {
         newMovieDetails._id = new mongoose.Types.ObjectId();
         Movie.create(newMovieDetails, function (err, movie) {
             if (err) return res.status(400).json(err);
-
             res.json(movie);
         });
         
