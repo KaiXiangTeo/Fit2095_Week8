@@ -99,13 +99,4 @@ module.exports = {
 
         })
     }
-
-
-    // getActorAll: function(req,res){
-    //     Movie.find({}).populate("actors").exec(function (err, movies) {
-    //         if (err) return res.status(400).json(err);
-
-    //         res.json(movies);
-    //     });
-    // }
 };
